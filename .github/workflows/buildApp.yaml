@@ -41,7 +41,7 @@ jobs:
         run: |
           for file in $ALL_CHANGED_FILES; do
             # Extract the first folder using basename and dirname
-            first_folder=$(basename "$file")
+            first_folder=$(dirname "$file")
             
             # Check if the extracted folder is not empty
             if [ -n "$first_folder" ]; then
