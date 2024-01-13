@@ -56,4 +56,4 @@ jobs:
       - name: Run script release for gmail
         run: |
           chmod +x ./build.js
-          ./build.js "$steps.concatenate-last-folders.outputs.concatenated_folders"
+          ./build.js "${{ steps.concatenate-last-folders.outputs.concatenated_folders }}"
