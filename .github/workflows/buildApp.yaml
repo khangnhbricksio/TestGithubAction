@@ -43,8 +43,14 @@ jobs:
           concatenated_folders=""
 
           for file in $ALL_CHANGED_FILES; do
-            echo "$file"
-            concatenated_folders+="$file|"
+            # Extract the first item by splitting the file path using '/'
+            first_item=$(echo "$file" | awk -F'/' '{print $1}')
+
+            # Check if the extracted item is not empty
+            if [ -n "$first_item" ]; then
+              echo "$first_item"
+              concatenated_folders+="$first_item|"
+            fi
           done
 
           echo "$concatenated_folders"
