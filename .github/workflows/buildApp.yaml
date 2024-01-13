@@ -53,11 +53,13 @@ jobs:
             fi
           done
 
+          echo "$concatenated_folders"
+
           # Remove trailing "|" from the concatenated string
           # concatenated_folders=$(echo "$concatenated_folders" | sed 's/|$//')
 
           # Output the concatenated string
-          echo "::set-output name=concatenated_folders::$concatenated_folders"
+          echo "concatenated_folders=$concatenated_folders" >> $GITHUB_OUTPUT
 
       - name: Run script release for gmail
         run: |
