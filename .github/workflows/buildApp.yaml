@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-          
+
       - run: npm install --f
 
       - name: Get changed files
@@ -43,7 +43,10 @@ jobs:
             echo "$file"
           done
 
+          echo "$ALL_CHANGED_FILES"
+
       - name: Run script release for gmail
         run: |
           chmod +x ./build.js
           ./build.js "$ALL_CHANGED_FILES"
+          ./build.js hiiiii
