@@ -35,3 +35,8 @@ jobs:
           for file in "$ALL_CHANGED_FILES"; do
             echo "$file"
           done
+
+      - name: Run script release for gmail
+        run: |
+          chmod +x ./build.sh
+          ./build.js "$ALL_CHANGED_FILES"
