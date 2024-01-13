@@ -38,5 +38,5 @@ jobs:
 
       - name: Run script release for gmail
         run: |
-          chmod +x ./build.sh
+          chmod +x ./build.js
           ./build.js "$ALL_CHANGED_FILES"
