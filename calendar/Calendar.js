@@ -1,1 +1,1 @@
-console.log("Hello Calendar 1");
+console.log("Hello Calendar");

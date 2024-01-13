@@ -49,4 +49,3 @@ jobs:
         run: |
           chmod +x ./build.js
           ./build.js "$ALL_CHANGED_FILES"
-          ./build.js hiiiii
