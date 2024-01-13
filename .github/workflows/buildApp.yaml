@@ -36,9 +36,12 @@ jobs:
       # NOTE: `since_last_remote_commit: true` is implied by default and falls back to the previous local commit.
 
       - name: List all changed files
+        id: concatenate-last-folders
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
+          concatenated_folders=""
+
           for file in $ALL_CHANGED_FILES; do
             # Extract the first folder using basename and dirname
             first_folder=$(dirname $(dirname "$file"))
@@ -46,10 +49,11 @@ jobs:
             # Check if the extracted folder is not empty
             if [ -n "$first_folder" ]; then
               echo "$first_folder"
+              concatenated_folders+="$last_folder|"
             fi
           done
 
-      # - name: Run script release for gmail
-      #   run: |
-      #     chmod +x ./build.js
-      #     ./build.js "$ALL_CHANGED_FILES"
+      - name: Run script release for gmail
+        run: |
+          chmod +x ./build.js
+          ./build.js steps.concatenate-last-folders.outputs.concatenated_folders
