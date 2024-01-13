@@ -1,0 +1,23 @@
+{
+  "name": "testgithubaction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khangnhbricksio/TestGithubAction.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khangnhbricksio/TestGithubAction/issues"
+  },
+  "homepage": "https://github.com/khangnhbricksio/TestGithubAction#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "yargs": "^17.7.2"
+  }
+}
