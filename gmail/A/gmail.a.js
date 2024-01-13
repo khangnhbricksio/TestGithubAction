@@ -1,1 +1,1 @@
-console.log("Hello a Gmail  85599 99");
+console.log("Hello a Gmail");

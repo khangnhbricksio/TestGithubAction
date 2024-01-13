@@ -49,15 +49,11 @@ jobs:
             # Check if the extracted folder is not empty
             if [ -n "$first_folder" ]; then
               echo "$first_folder"
-              concatenated_folders+="$last_folder"
-              concatenated_folders+="|"
+              concatenated_folders+="$first_folder|"
             fi
           done
 
           echo "$concatenated_folders"
-
-          # Remove trailing "|" from the concatenated string
-          # concatenated_folders=$(echo "$concatenated_folders" | sed 's/|$//')
 
           # Output the concatenated string
           echo "concatenated_folders=$concatenated_folders" >> $GITHUB_OUTPUT
