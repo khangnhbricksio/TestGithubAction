@@ -43,14 +43,8 @@ jobs:
           concatenated_folders=""
 
           for file in $ALL_CHANGED_FILES; do
-            # Extract the first folder using basename and dirname
-            first_folder=$(dirname $(dirname "$file"))
-            
-            # Check if the extracted folder is not empty
-            if [ -n "$first_folder" ]; then
-              echo "$first_folder"
-              concatenated_folders+="$first_folder|"
-            fi
+            echo "$file"
+            concatenated_folders+="$file|"
           done
 
           echo "$concatenated_folders"
