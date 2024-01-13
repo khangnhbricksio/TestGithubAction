@@ -39,13 +39,17 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          for file in "$ALL_CHANGED_FILES"; do
-            echo "$file"
+          for file in $ALL_CHANGED_FILES; do
+            # Extract the first folder using basename and dirname
+            first_folder=$(basename $(dirname "$file"))
+            
+            # Check if the extracted folder is not empty
+            if [ -n "$first_folder" ]; then
+              echo "$first_folder"
+            fi
           done
 
-          echo "$ALL_CHANGED_FILES"
-
-      - name: Run script release for gmail
-        run: |
-          chmod +x ./build.js
-          ./build.js "$ALL_CHANGED_FILES"
+      # - name: Run script release for gmail
+      #   run: |
+      #     chmod +x ./build.js
+      #     ./build.js "$ALL_CHANGED_FILES"
